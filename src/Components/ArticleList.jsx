@@ -7,15 +7,29 @@ class ArticleList extends Component {
   state = {
     articles: [],
     isLoading: true,
+    sort_by: "created_at",
   };
 
   getArticles = () => {
+    const { topic_slug } = this.props;
+    const { sort_by } = this.state;
     api
-      .fetchArticles(this.props.topic_slug)
+      .fetchArticles(topic_slug, sort_by)
       .then((articles) => {
         this.setState({ articles, isLoading: false });
       })
       .catch((err) => console.log(err));
+  };
+
+  selectSortBy = (event) => {
+    const { value } = event.target;
+    this.setState((currentState) => {
+      return {
+        ...currentState.articles,
+        ...currentState.isLoading,
+        sort_by: value,
+      };
+    });
   };
 
   componentDidMount = () => {
@@ -23,7 +37,10 @@ class ArticleList extends Component {
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    if (prevProps.topic_slug !== this.props.topic_slug) {
+    if (
+      prevProps.topic_slug !== this.props.topic_slug ||
+      prevState.sort_by !== this.state.sort_by
+    ) {
       this.getArticles();
     }
   };
@@ -33,6 +50,14 @@ class ArticleList extends Component {
     if (isLoading) return <Loader />;
     return (
       <main>
+        <h3>Sort articles by:</h3>
+        <form>
+          <select onChange={this.selectSortBy}>
+            <option value="created_at">Date</option>
+            <option value="votes">Most voted</option>
+            <option value="comment_count">Most commented</option>
+          </select>
+        </form>
         {articles.map((article) => {
           const { article_id } = article;
           return <ArticleCard {...article} key={article_id} />;
