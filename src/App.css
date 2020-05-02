@@ -16,14 +16,38 @@ nav {
   justify-content: space-around;
 }
 
+a {
+  text-decoration: none;
+  color: #2f4f4f;
+}
+
+a:hover {
+  color: #b22222;
+}
+
 h1 {
   font-size: 2.5em;
   margin-block-start: 0.2em;
   margin-block-end: 0.4em;
 }
 
-a {
-  text-decoration: none;
+.welcome {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.highlight {
+  color: #b22222;
+}
+
+.sortBy {
+  margin-block-end: 0.3em;
+}
+
+.dropDown {
+  font-family: "Oswald", sans-serif;
+  margin-block-end: 2em;
+  border: 2px solid black;
 }
 
 .articleSection {
@@ -39,23 +63,40 @@ a {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  background-color: #eaeded;
 }
 
-h3 {
+.articleLink {
   margin-block-start: 0.2em;
   margin-block-end: 0.4em;
+  font-size: 1.1em;
+  padding-top: 0.1em;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
 }
 
-h4,
-h5 {
+.author {
+  font-style: italic;
+  font-size: 0.8em;
+  color: #5f6d7a;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.2em;
+}
+
+.articleScore {
   margin-block-start: 0.2em;
   margin-block-end: 0.2em;
+  font-size: 0.7em;
+  color: #5f6d7a;
+  margin-bottom: auto;
 }
 
 .cardPic {
   border: 1px solid black;
   width: 95%;
   align-self: center;
+  margin-bottom: 3px;
 }
 
 @media only screen and (max-width: 600px) {

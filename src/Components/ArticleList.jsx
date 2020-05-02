@@ -50,9 +50,9 @@ class ArticleList extends Component {
     if (isLoading) return <Loader />;
     return (
       <main>
-        <h3>Sort articles by:</h3>
+        <h3 className="sortBy">Sort articles by:</h3>
         <form>
-          <select onChange={this.selectSortBy}>
+          <select onChange={this.selectSortBy} className="dropDown">
             <option value="created_at">Date</option>
             <option value="votes">Most voted</option>
             <option value="comment_count">Most commented</option>

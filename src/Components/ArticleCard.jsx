@@ -14,19 +14,17 @@ const ArticleCard = ({
 
   return (
     <section className="articleCard">
-      <h3>
-        <Link to={`/articles/${article_id}`} className="articleLink">
-          {title}
-        </Link>
+      <h3 className="articleLink">
+        <Link to={`/articles/${article_id}`}>{title}</Link>
       </h3>
-      <h4>
+      <h4 className="author">
         {author}, {date}
       </h4>
-      <h5>
+      <h5 className="articleScore">
         comments: {comment_count}, votes: {votes}
       </h5>
       <img
-        src={require("../Images/angularjs.jpg")}
+        src={require(`../Images/${article_id}.jpg`)}
         alt="angularjs"
         className="cardPic"
       />
