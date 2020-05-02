@@ -13,7 +13,7 @@ const ArticleCard = ({
   const date = modifyDate(created_at);
 
   return (
-    <section>
+    <section className="articleCard">
       <h3>
         <Link to={`/articles/${article_id}`}>{title}</Link>
       </h3>

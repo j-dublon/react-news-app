@@ -1,3 +1,30 @@
 .App {
   text-align: center;
 }
+
+body {
+  padding-left: 10%;
+  padding-right: 10%;
+  background-image: url("../src/Images/background1.png");
+  background-repeat: repeat-y;
+  background-size: 100%;
+}
+
+.articleSection {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.articleCard {
+  margin: 20px;
+  width: 25%;
+  height: 300px;
+  border: 1px solid black;
+}
+
+@media only screen and (max-width: 600px) {
+  .articleCard {
+    width: 80%;
+  }
+}

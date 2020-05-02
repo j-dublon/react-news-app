@@ -58,10 +58,12 @@ class ArticleList extends Component {
             <option value="comment_count">Most commented</option>
           </select>
         </form>
-        {articles.map((article) => {
-          const { article_id } = article;
-          return <ArticleCard {...article} key={article_id} />;
-        })}
+        <section className="articleSection">
+          {articles.map((article) => {
+            const { article_id } = article;
+            return <ArticleCard {...article} key={article_id} />;
+          })}
+        </section>
       </main>
     );
   }
