@@ -8,6 +8,22 @@ body {
   background-image: url("../src/Images/background1.png");
   background-repeat: repeat-y;
   background-size: 100%;
+  font-family: "Oswald", sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.4em;
+}
+
+a {
+  text-decoration: none;
 }
 
 .articleSection {
@@ -21,6 +37,25 @@ body {
   width: 25%;
   height: 300px;
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  margin-block-start: 0.2em;
+  margin-block-end: 0.4em;
+}
+
+h4,
+h5 {
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+}
+
+.cardPic {
+  border: 1px solid black;
+  width: 95%;
+  align-self: center;
 }
 
 @media only screen and (max-width: 600px) {

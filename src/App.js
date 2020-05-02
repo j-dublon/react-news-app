@@ -17,8 +17,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Title username={this.state.username} />
         <NavBar />
+        <Title username={this.state.username} />
         <Router>
           <ArticleList path="/" />
           <ArticleList path="/topic/:topic_slug" />

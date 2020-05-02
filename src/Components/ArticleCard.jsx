@@ -15,7 +15,9 @@ const ArticleCard = ({
   return (
     <section className="articleCard">
       <h3>
-        <Link to={`/articles/${article_id}`}>{title}</Link>
+        <Link to={`/articles/${article_id}`} className="articleLink">
+          {title}
+        </Link>
       </h3>
       <h4>
         {author}, {date}
@@ -23,6 +25,11 @@ const ArticleCard = ({
       <h5>
         comments: {comment_count}, votes: {votes}
       </h5>
+      <img
+        src={require("../Images/angularjs.jpg")}
+        alt="angularjs"
+        className="cardPic"
+      />
     </section>
   );
 };
