@@ -25,8 +25,8 @@ class SingleArticle extends Component {
     } = this.state;
     return (
       <main className="singleArticle">
-        <h3>{title}</h3>
-        <h4>
+        <h3 className="articleTitle">{title}</h3>
+        <h4 className="singleArticleAuthor">
           {author}, {date}
         </h4>
         <p>{body}</p>

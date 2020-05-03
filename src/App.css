@@ -99,6 +99,23 @@ h1 {
   margin-bottom: 3px;
 }
 
+.singleArticle {
+  border: 1px solid black;
+  text-align: left;
+  padding: 1.5em;
+  background-color: #eaeded;
+  margin-top: 2.5em;
+}
+
+.articleTitle {
+  margin-block-start: 0;
+  font-size: 1.5em;
+}
+
+.singleArticleAuthor {
+  font-style: italic;
+}
+
 @media only screen and (max-width: 600px) {
   .articleCard {
     width: 80%;
