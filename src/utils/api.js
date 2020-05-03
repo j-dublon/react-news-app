@@ -25,3 +25,11 @@ export const fetchArticle = (id) => {
       return article;
     });
 };
+
+export const fetchComments = (id) => {
+  return axios
+    .get(`https://j-dublon-nc-news.herokuapp.com/api/articles/${id}/comments`)
+    .then(({ data: { comments } }) => {
+      return comments;
+    });
+};

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../utils/api";
 import modifyDate from "../utils/utils";
+import Comments from "./Comments";
 
 class SingleArticle extends Component {
   state = {
@@ -21,16 +22,19 @@ class SingleArticle extends Component {
 
   render() {
     const {
-      article: { title, author, date, body },
+      article: { title, author, date, body, article_id },
     } = this.state;
     return (
-      <main className="singleArticle">
-        <h3 className="articleTitle">{title}</h3>
-        <h4 className="singleArticleAuthor">
-          {author}, {date}
-        </h4>
-        <p>{body}</p>
-      </main>
+      <section>
+        <main className="singleArticle">
+          <h3 className="articleTitle">{title}</h3>
+          <h4 className="singleArticleAuthor">
+            {author}, {date}
+          </h4>
+          <p>{body}</p>
+        </main>
+        <Comments id={article_id} />
+      </section>
     );
   }
 }
