@@ -22,7 +22,6 @@ export const fetchArticle = (id) => {
   return axios
     .get(`https://j-dublon-nc-news.herokuapp.com/api/articles/${id}`)
     .then(({ data: { article } }) => {
-      console.log(article);
       return article;
     });
 };
