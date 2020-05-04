@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 import modifyDate from "../utils/utils";
 import AddComment from "./AddComment";
-import Voter from "./Voter";
+import CommentCard from "./CommentCard";
 
 class Comments extends Component {
   state = {
@@ -52,23 +52,15 @@ class Comments extends Component {
         />
         {comments.map((comment) => {
           comment.date = modifyDate(comment.created_at);
-          const { comment_id, author, date, body, votes } = comment;
+          const { comment_id } = comment;
+          const currentUser = this.props.username;
           return (
-            <section className="commentBox" key={comment_id}>
-              <h3 className="commentTitle">
-                {author}, {date}
-              </h3>
-              <p className="commentBody">{body}</p>
-              <Voter votes={votes} id={comment_id} section="comments" />
-              {comment.author === this.props.username && (
-                <button
-                  onClick={() => this.handleDelete(comment_id)}
-                  className="submitButton"
-                >
-                  Delete your comment
-                </button>
-              )}
-            </section>
+            <CommentCard
+              comment={comment}
+              key={comment_id}
+              currentUser={currentUser}
+              handleDelete={this.handleDelete}
+            />
           );
         })}
       </main>
