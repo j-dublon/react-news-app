@@ -44,3 +44,9 @@ export const postComment = (requestBody, id) => {
       return data.comment;
     });
 };
+
+export const removeComment = (id) => {
+  return axios.delete(
+    `https://j-dublon-nc-news.herokuapp.com/api/comments/${id}`
+  );
+};
