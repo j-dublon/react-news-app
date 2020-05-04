@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 import modifyDate from "../utils/utils";
 import Comments from "./Comments";
+import Voter from "./Voter";
 
 class SingleArticle extends Component {
   state = {
@@ -22,7 +23,7 @@ class SingleArticle extends Component {
 
   render() {
     const {
-      article: { title, author, date, body, article_id },
+      article: { title, author, date, body, article_id, votes },
     } = this.state;
     return (
       <section>
@@ -32,6 +33,7 @@ class SingleArticle extends Component {
             {author}, {date}
           </h4>
           <p>{body}</p>
+          <Voter votes={votes} id={article_id} section="articles" />
         </main>
         <Comments id={article_id} username={this.props.username} />
       </section>

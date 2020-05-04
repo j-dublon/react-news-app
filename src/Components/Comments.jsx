@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../utils/api";
 import modifyDate from "../utils/utils";
 import AddComment from "./AddComment";
+import Voter from "./Voter";
 
 class Comments extends Component {
   state = {
@@ -58,7 +59,7 @@ class Comments extends Component {
                 {author}, {date}
               </h3>
               <p className="commentBody">{body}</p>
-              <h4 className="commentVotes">Votes: {votes}</h4>
+              <Voter votes={votes} id={comment_id} section="comments" />
               {comment.author === this.props.username && (
                 <button
                   onClick={() => this.handleDelete(comment_id)}

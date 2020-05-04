@@ -163,12 +163,6 @@ h1 {
   font-size: 1em;
 }
 
-.commentVotes {
-  margin-block-end: 0;
-  font-style: italic;
-  font-size: 1em;
-}
-
 @media only screen and (max-width: 600px) {
   .articleCard {
     width: 80%;

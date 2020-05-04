@@ -50,3 +50,10 @@ export const removeComment = (id) => {
     `https://j-dublon-nc-news.herokuapp.com/api/comments/${id}`
   );
 };
+
+export const updateVotes = (section, id, voteChange) => {
+  return axios.patch(
+    `https://j-dublon-nc-news.herokuapp.com/api/${section}/${id}`,
+    { inc_votes: voteChange }
+  );
+};
