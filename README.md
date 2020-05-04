@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Northcoders React News App
 
-## Available Scripts
+This is a full stack application that serves news content from a REST API via a React app.
 
-In the project directory, you can run:
+The live hosted app can be seen here: (link to app). The app is responsive and can be viewed on both desktop and mobile.
 
-### `npm start`
+The back end API can be accessed [here](https://j-dublon-nc-news.herokuapp.com/api) - this serves a JSON object detailing all the endpoints of the API. The backend code can be found [here](https://github.com/j-dublon/be-nc-news), with instruction on how to install locally.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## User stories:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+As a user, I can:
 
-### `npm test`
+- view all articles
+- view all articles on a certain topic
+- sort articles by date, comments, or votes
+- click on an article title to view an individual article and its comments
+- post a new comment to an existing article (as a default logged in user)
+- delete my own comments
+- vote on an article and immediately see the change
+- vote on a comment and immediately see the change
+- receive a 404 error if I go on a non-existent path/a path for a non-existent article/topic
+- receive a 400 error if I go on a invalid article ID
+- not post a comment if I have not filled in the text box
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Running the app locally
 
-### `npm run build`
+### Prerequisites:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (13.13.0)
+- React (16.3.1)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Installation:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Fork the repo
+2. Clone the fork to your local machine (navigate to a suitable folder, and run `git clone your-forked-url`)
+3. cd into your newly cloned local repo and open
+4. `npm install`
+5. `npm start`
 
-### `npm run eject`
+## Desktop and mobile screenshots:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![desktop screenshot](src/Images/desktop.png) ![mobile screenshot](src/Images/mobile.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Built with
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Node.js - runtime environment
+- Axios - promise based http client for making requests to the API
+- Create React App - to bootstrap app setup
+- React - JS library for building user interfaces
+- Reach Router - for routing React apps
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Contributing
 
-## Learn More
+[Please see here](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for an excellent guide to contributing.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Author
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Jodi Dublon
 
-### Code Splitting
+## Acknowledgements
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Many thanks to everyone at Northcoders.
