@@ -144,9 +144,12 @@ h1 {
   font-family: "Oswald", sans-serif;
 }
 
+.submitButton:hover {
+  background-color: #b22222;
+}
+
 .submitButton:focus {
   outline: none;
-  border-color: #b22222;
 }
 
 .commentTitle {

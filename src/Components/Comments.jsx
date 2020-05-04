@@ -60,7 +60,10 @@ class Comments extends Component {
               <p className="commentBody">{body}</p>
               <h4 className="commentVotes">Votes: {votes}</h4>
               {comment.author === this.props.username && (
-                <button onClick={() => this.handleDelete(comment_id)}>
+                <button
+                  onClick={() => this.handleDelete(comment_id)}
+                  className="submitButton"
+                >
                   Delete your comment
                 </button>
               )}
