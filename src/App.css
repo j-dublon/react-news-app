@@ -101,6 +101,7 @@ h1 {
 
 .singleArticle {
   border: 1px solid black;
+  border-radius: 5px;
   text-align: left;
   padding: 1.5em;
   background-color: #eaeded;
@@ -116,8 +117,61 @@ h1 {
   font-style: italic;
 }
 
+.commentBox {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 2em;
+  background-color: #fefbf7;
+  text-align: left;
+  padding: 1.5em;
+}
+
+.textArea {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: "Oswald", sans-serif;
+}
+
+.textArea:focus {
+  outline: none;
+  border-color: #b22222;
+}
+
+.submitButton {
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: "Oswald", sans-serif;
+}
+
+.submitButton:focus {
+  outline: none;
+  border-color: #b22222;
+}
+
+.commentTitle {
+  margin-block-start: 0;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.commentBody {
+  font-style: italic;
+  font-size: 1em;
+}
+
+.commentVotes {
+  margin-block-end: 0;
+  font-style: italic;
+  font-size: 1em;
+}
+
 @media only screen and (max-width: 600px) {
   .articleCard {
     width: 80%;
+  }
+
+  .singleArticle {
+    text-align: center;
   }
 }

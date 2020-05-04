@@ -33,7 +33,7 @@ class SingleArticle extends Component {
           </h4>
           <p>{body}</p>
         </main>
-        <Comments id={article_id} />
+        <Comments id={article_id} username={this.props.username} />
       </section>
     );
   }

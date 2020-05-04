@@ -33,3 +33,14 @@ export const fetchComments = (id) => {
       return comments;
     });
 };
+
+export const postComment = (requestBody, id) => {
+  return axios
+    .post(
+      `https://j-dublon-nc-news.herokuapp.com/api/articles/${id}/comments`,
+      requestBody
+    )
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
