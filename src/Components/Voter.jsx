@@ -13,11 +13,24 @@ class Voter extends Component {
   };
 
   render() {
+    const { voteDifference } = this.state;
     return (
-      <section>
-        <button onClick={() => this.handleVote(1)}>Up</button>
+      <section className="voter">
+        <button
+          onClick={() => this.handleVote(-1)}
+          className="voteButton"
+          disabled={voteDifference !== 0}
+        >
+          -
+        </button>
         <p>{this.props.votes + this.state.voteDifference} votes</p>
-        <button onClick={() => this.handleVote(-1)}>Down</button>
+        <button
+          onClick={() => this.handleVote(1)}
+          className="voteButton"
+          disabled={voteDifference !== 0}
+        >
+          +
+        </button>
       </section>
     );
   }

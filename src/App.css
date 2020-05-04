@@ -117,6 +117,34 @@ h1 {
   font-style: italic;
 }
 
+.voter {
+  display: flex;
+  align-items: center;
+}
+
+.voteButton {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  font-size: 0.9em;
+  padding: 0em;
+  text-align: center;
+  margin: 0.5em;
+}
+
+.voteButton:hover {
+  background-color: #b22222;
+}
+
+.voteButton:focus {
+  outline: none;
+}
+
+.voteButton:disabled {
+  background-color: white;
+}
+
 .commentBox {
   border: 1px solid black;
   border-radius: 5px;
