@@ -7,6 +7,7 @@ import ErrorDisplayer from "./ErrorDisplayer";
 class ArticleList extends Component {
   state = {
     articles: [],
+    total_count: 0,
     isLoading: true,
     sort_by: "created_at",
     err: "",
@@ -17,8 +18,8 @@ class ArticleList extends Component {
     const { sort_by } = this.state;
     api
       .fetchArticles(topic_slug, sort_by)
-      .then((articles) => {
-        this.setState({ articles, isLoading: false });
+      .then(({ articles, total_count }) => {
+        this.setState({ articles, total_count, isLoading: false });
       })
       .catch((err) => {
         this.setState((currentState) => {
@@ -66,19 +67,22 @@ class ArticleList extends Component {
   };
 
   render() {
-    const { articles, isLoading, err } = this.state;
+    const { articles, isLoading, err, total_count } = this.state;
     if (isLoading) return <Loader />;
     if (err) return <ErrorDisplayer err={err} />;
     return (
       <main>
-        <h3 className="sortBy">Sort articles by:</h3>
-        <form>
+        <form className="sortByForm">
+          <label for="sortBy" className="sortBy">
+            Sort articles by:
+          </label>
           <select onChange={this.selectSortBy} className="dropDown">
             <option value="created_at">Date</option>
             <option value="votes">Most voted</option>
             <option value="comment_count">Most commented</option>
           </select>
         </form>
+        <h4 className="totalCount">{total_count} articles found</h4>
         <section className="articleSection">
           {articles.map((article) => {
             const { article_id } = article;

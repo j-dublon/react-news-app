@@ -5,8 +5,8 @@ export const fetchArticles = (topic_slug, sort_by) => {
     .get("https://j-dublon-nc-news.herokuapp.com/api/articles", {
       params: { topic: topic_slug, sort_by },
     })
-    .then(({ data: { articles } }) => {
-      return articles;
+    .then(({ data }) => {
+      return data;
     });
 };
 
