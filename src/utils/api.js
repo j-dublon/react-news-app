@@ -6,6 +6,7 @@ export const fetchArticles = (topic_slug, sort_by) => {
       params: { topic: topic_slug, sort_by },
     })
     .then(({ data }) => {
+      data.maxPage = Math.ceil(data.total_count / 9);
       return data;
     });
 };

@@ -11,6 +11,8 @@ class ArticleList extends Component {
     isLoading: true,
     sort_by: "created_at",
     err: "",
+    page: 1,
+    maxPage: Infinity,
   };
 
   getArticles = () => {
@@ -18,8 +20,13 @@ class ArticleList extends Component {
     const { sort_by } = this.state;
     api
       .fetchArticles(topic_slug, sort_by)
-      .then(({ articles, total_count }) => {
-        this.setState({ articles, total_count, isLoading: false });
+      .then(({ articles, total_count, maxPage }) => {
+        this.setState({
+          articles,
+          total_count,
+          maxPage,
+          isLoading: false,
+        });
       })
       .catch((err) => {
         this.setState((currentState) => {
@@ -31,15 +38,6 @@ class ArticleList extends Component {
           };
         });
       });
-
-    this.setState((currentState) => {
-      return {
-        articles: currentState.articles,
-        isLoading: false,
-        sort_by: "created_at",
-        err: "",
-      };
-    });
   };
 
   selectSortBy = (event) => {
@@ -73,7 +71,7 @@ class ArticleList extends Component {
     return (
       <main>
         <form className="sortByForm">
-          <label for="sortBy" className="sortBy">
+          <label htmlFor="sortBy" className="sortBy">
             Sort articles by:
           </label>
           <select onChange={this.selectSortBy} className="dropDown">
