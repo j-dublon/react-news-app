@@ -2,7 +2,7 @@
 
 This is a full stack application that serves news content from a REST API via a React app.
 
-The live hosted app can be seen here: (link to app). The app is responsive and can be viewed on both desktop and mobile.
+The live hosted app can be seen [here](https://condescending-tesla-f2ac29.netlify.app). The app is responsive and can be viewed on both desktop and mobile.
 
 The back end API can be accessed [here](https://j-dublon-nc-news.herokuapp.com/api) - this serves a JSON object detailing all the endpoints of the API. The backend code can be found [here](https://github.com/j-dublon/be-nc-news), with instruction on how to install locally.
 
