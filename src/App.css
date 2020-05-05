@@ -191,6 +191,11 @@ h1 {
   font-size: 1em;
 }
 
+.error {
+  font-size: 2em;
+  font-style: italic;
+}
+
 @media only screen and (max-width: 600px) {
   .articleCard {
     width: 80%;

@@ -37,6 +37,7 @@ class AddComment extends Component {
             name="body"
             onChange={this.handleInput}
             className="textArea"
+            required
           />
         </label>
         <button className="submitButton">Submit</button>

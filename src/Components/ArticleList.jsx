@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import ArticleCard from "./ArticleCard";
 import Loader from "./Loader";
 import * as api from "../utils/api";
+import ErrorDisplayer from "./ErrorDisplayer";
 
 class ArticleList extends Component {
   state = {
     articles: [],
     isLoading: true,
     sort_by: "created_at",
+    err: "",
   };
 
   getArticles = () => {
@@ -18,7 +20,25 @@ class ArticleList extends Component {
       .then((articles) => {
         this.setState({ articles, isLoading: false });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        this.setState((currentState) => {
+          return {
+            articles: currentState.articles,
+            isLoading: false,
+            sort_by: "created_at",
+            err: err.response.data.msg,
+          };
+        });
+      });
+
+    this.setState((currentState) => {
+      return {
+        articles: currentState.articles,
+        isLoading: false,
+        sort_by: "created_at",
+        err: "",
+      };
+    });
   };
 
   selectSortBy = (event) => {
@@ -46,8 +66,9 @@ class ArticleList extends Component {
   };
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, err } = this.state;
     if (isLoading) return <Loader />;
+    if (err) return <ErrorDisplayer err={err} />;
     return (
       <main>
         <h3 className="sortBy">Sort articles by:</h3>
