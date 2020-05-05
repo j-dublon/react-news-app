@@ -17,12 +17,9 @@ class AddComment extends Component {
     event.preventDefault();
     const { body } = this.state;
     const { handleAdd, id, username } = this.props;
-    api
-      .postComment({ username, body }, id)
-      .then((response) => {
-        handleAdd(response);
-      })
-      .catch((err) => console.dir(err));
+    api.postComment({ username, body }, id).then((response) => {
+      handleAdd(response);
+    });
   };
 
   render() {
