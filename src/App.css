@@ -198,6 +198,14 @@ h1 {
   outline: none;
 }
 
+.submitButton:disabled {
+  background-color: white;
+}
+
+.pageButton {
+  margin-block-end: 2em;
+}
+
 .commentTitle {
   margin-block-start: 0;
   font-style: italic;

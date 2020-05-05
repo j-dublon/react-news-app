@@ -3,6 +3,7 @@ import ArticleCard from "./ArticleCard";
 import Loader from "./Loader";
 import * as api from "../utils/api";
 import ErrorDisplayer from "./ErrorDisplayer";
+import PaginationBar from "./PaginationBar";
 
 class ArticleList extends Component {
   state = {
@@ -17,9 +18,9 @@ class ArticleList extends Component {
 
   getArticles = () => {
     const { topic_slug } = this.props;
-    const { sort_by } = this.state;
+    const { sort_by, page } = this.state;
     api
-      .fetchArticles(topic_slug, sort_by)
+      .fetchArticles(topic_slug, sort_by, page)
       .then(({ articles, total_count, maxPage }) => {
         this.setState({
           articles,
@@ -51,6 +52,12 @@ class ArticleList extends Component {
     });
   };
 
+  changePage = (pageChange) => {
+    this.setState((currentState) => {
+      return { page: currentState.page + pageChange };
+    });
+  };
+
   componentDidMount = () => {
     this.getArticles();
   };
@@ -58,14 +65,15 @@ class ArticleList extends Component {
   componentDidUpdate = (prevProps, prevState) => {
     if (
       prevProps.topic_slug !== this.props.topic_slug ||
-      prevState.sort_by !== this.state.sort_by
+      prevState.sort_by !== this.state.sort_by ||
+      prevState.page !== this.state.page
     ) {
       this.getArticles();
     }
   };
 
   render() {
-    const { articles, isLoading, err, total_count } = this.state;
+    const { articles, isLoading, err, total_count, page, maxPage } = this.state;
     if (isLoading) return <Loader />;
     if (err) return <ErrorDisplayer err={err} />;
     return (
@@ -87,6 +95,11 @@ class ArticleList extends Component {
             return <ArticleCard {...article} key={article_id} />;
           })}
         </section>
+        <PaginationBar
+          changePage={this.changePage}
+          page={page}
+          maxPage={maxPage}
+        />
       </main>
     );
   }

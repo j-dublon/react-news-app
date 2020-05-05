@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const fetchArticles = (topic_slug, sort_by) => {
+export const fetchArticles = (topic_slug, sort_by, page) => {
   return axios
     .get("https://j-dublon-nc-news.herokuapp.com/api/articles", {
-      params: { topic: topic_slug, sort_by },
+      params: { topic: topic_slug, sort_by, p: page },
     })
     .then(({ data }) => {
       data.maxPage = Math.ceil(data.total_count / 9);
