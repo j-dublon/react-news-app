@@ -16,9 +16,9 @@ class SingleArticle extends Component {
   };
 
   getArticle = () => {
-    const id = window.location.pathname.slice(10);
+    const { article_id } = this.props;
     api
-      .fetchArticle(id)
+      .fetchArticle(article_id)
       .then((article) => {
         article.date = modifyDate(article.created_at);
         this.setState({ article });

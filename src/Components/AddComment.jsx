@@ -8,11 +8,8 @@ class AddComment extends Component {
 
   handleInput = (event) => {
     const { value } = event.target;
-    this.setState((currentState) => {
-      return {
-        ...currentState.username,
-        body: value,
-      };
+    this.setState({
+      body: value,
     });
   };
 

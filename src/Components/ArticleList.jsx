@@ -43,12 +43,8 @@ class ArticleList extends Component {
 
   selectSortBy = (event) => {
     const { value } = event.target;
-    this.setState((currentState) => {
-      return {
-        ...currentState.articles,
-        ...currentState.isLoading,
-        sort_by: value,
-      };
+    this.setState({
+      sort_by: value,
     });
   };
 
