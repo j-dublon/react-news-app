@@ -4,6 +4,7 @@ import modifyDate from "../utils/utils";
 import Comments from "./Comments";
 import Voter from "./Voter";
 import ErrorDisplayer from "./ErrorDisplayer";
+import { Link } from "@reach/router";
 
 class SingleArticle extends Component {
   state = {
@@ -51,7 +52,10 @@ class SingleArticle extends Component {
         <main className="singleArticle">
           <h3 className="articleTitle">{title}</h3>
           <h4 className="singleArticleAuthor">
-            {author}, {date}
+            <Link to={`/${author}`} className="authorLink">
+              {author}
+            </Link>
+            , {date}
           </h4>
           <p>{body}</p>
           <Voter votes={votes} id={article_id} section="articles" />

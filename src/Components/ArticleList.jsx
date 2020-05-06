@@ -17,10 +17,10 @@ class ArticleList extends Component {
   };
 
   getArticles = () => {
-    const { topic_slug } = this.props;
+    const { topic_slug, author } = this.props;
     const { sort_by, page } = this.state;
     api
-      .fetchArticles(topic_slug, sort_by, page)
+      .fetchArticles(topic_slug, sort_by, page, author)
       .then(({ articles, total_count, maxPage }) => {
         this.setState({
           articles,

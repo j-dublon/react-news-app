@@ -23,6 +23,7 @@ class App extends Component {
         <Router>
           <ArticleList path="/" />
           <ArticleList path="/topic/:topic_slug" />
+          <ArticleList path="/:author" />
           <SingleArticle
             path="/articles/:article_id"
             username={this.state.username}

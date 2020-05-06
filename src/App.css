@@ -135,6 +135,14 @@ h1 {
   font-style: italic;
 }
 
+.authorLink {
+  color: #0000cd;
+}
+
+.authorLink:hover {
+  text-decoration: underline;
+}
+
 .voter {
   display: flex;
   align-items: center;
