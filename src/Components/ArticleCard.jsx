@@ -18,7 +18,10 @@ const ArticleCard = ({
         <Link to={`/articles/${article_id}`}>{title}</Link>
       </h3>
       <h4 className="author">
-        {author}, {date}
+        <Link to={`/${author}`} className="authorLink">
+          {author}
+        </Link>
+        , {date}
       </h4>
       <h5 className="articleScore">
         comments: {comment_count}, votes: {votes}
