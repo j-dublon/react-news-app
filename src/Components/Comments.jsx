@@ -4,10 +4,14 @@ import modifyDate from "../utils/utils";
 import AddComment from "./AddComment";
 import CommentCard from "./CommentCard";
 import ErrorDisplayer from "./ErrorDisplayer";
+import PaginationBar from "./PaginationBar";
 
 class Comments extends Component {
   state = {
     comments: [],
+    total_count: 0,
+    page: 1,
+    maxPage: Infinity,
     err: "",
   };
 
@@ -15,12 +19,19 @@ class Comments extends Component {
     this.getComments();
   };
 
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevState.page !== this.state.page) {
+      this.getComments();
+    }
+  };
+
   getComments = () => {
     const id = window.location.pathname.slice(10);
+    const { page } = this.state;
     api
-      .fetchComments(id)
-      .then((comments) => {
-        this.setState({ comments: comments });
+      .fetchComments(id, page)
+      .then(({ comments, total_count, maxPage }) => {
+        this.setState({ comments, total_count, maxPage });
       })
       .catch((err) => {
         this.setState((currentState) => {
@@ -69,8 +80,14 @@ class Comments extends Component {
       });
   };
 
+  changeCommentsPage = (pageChange) => {
+    this.setState((currentState) => {
+      return { page: currentState.page + pageChange };
+    });
+  };
+
   render() {
-    const { comments, err } = this.state;
+    const { comments, err, page, maxPage } = this.state;
     const article_id = this.props.id;
     if (err) return <ErrorDisplayer err={err} />;
     return (
@@ -93,6 +110,11 @@ class Comments extends Component {
             />
           );
         })}
+        <PaginationBar
+          changePage={this.changeCommentsPage}
+          page={page}
+          maxPage={maxPage}
+        />
       </main>
     );
   }

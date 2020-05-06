@@ -204,6 +204,7 @@ h1 {
 
 .pageButton {
   margin-block-end: 2em;
+  margin-block-start: 2em;
 }
 
 .commentTitle {

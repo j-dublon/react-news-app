@@ -27,11 +27,14 @@ export const fetchArticle = (id) => {
     });
 };
 
-export const fetchComments = (id) => {
+export const fetchComments = (id, page) => {
   return axios
-    .get(`https://j-dublon-nc-news.herokuapp.com/api/articles/${id}/comments`)
-    .then(({ data: { comments } }) => {
-      return comments;
+    .get(`https://j-dublon-nc-news.herokuapp.com/api/articles/${id}/comments`, {
+      params: { p: page },
+    })
+    .then(({ data }) => {
+      data.maxPage = Math.ceil(data.total_count / 10);
+      return data;
     });
 };
 
