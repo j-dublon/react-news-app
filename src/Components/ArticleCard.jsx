@@ -39,7 +39,7 @@ const ArticleCard = ({
       {author === currentUser && (
         <button
           onClick={() => handleDeleteArticle(article_id)}
-          className="submitButton"
+          className="submitButton article"
         >
           Delete your article
         </button>

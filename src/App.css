@@ -210,6 +210,12 @@ h1 {
   background-color: white;
 }
 
+.submitButton.article {
+  width: 60%;
+  align-self: center;
+  margin-bottom: 2px;
+}
+
 .pageButton {
   margin-block-end: 2em;
   margin-block-start: 2em;
