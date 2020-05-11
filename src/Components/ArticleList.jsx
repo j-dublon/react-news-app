@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import * as api from "../utils/api";
 import ErrorDisplayer from "./ErrorDisplayer";
 import PaginationBar from "./PaginationBar";
+import AddArticle from "./AddArticle";
 
 class ArticleList extends Component {
   state = {
@@ -54,6 +55,14 @@ class ArticleList extends Component {
     });
   };
 
+  handleAddArticle = (newArticle) => {
+    this.setState((currentState) => {
+      return {
+        articles: [newArticle, ...currentState.articles],
+      };
+    });
+  };
+
   componentDidMount = () => {
     this.getArticles();
   };
@@ -70,6 +79,7 @@ class ArticleList extends Component {
 
   render() {
     const { articles, isLoading, err, total_count, page, maxPage } = this.state;
+    const { topic_slug, username } = this.props;
     if (isLoading) return <Loader />;
     if (err) return <ErrorDisplayer err={err} />;
     return (
@@ -88,9 +98,23 @@ class ArticleList extends Component {
         <section className="articleSection">
           {articles.map((article) => {
             const { article_id } = article;
-            return <ArticleCard {...article} key={article_id} />;
+            return (
+              <ArticleCard
+                {...article}
+                key={article_id}
+                username={username}
+                topic={topic_slug}
+              />
+            );
           })}
         </section>
+        {topic_slug && (
+          <AddArticle
+            topic={topic_slug}
+            handleAddArticle={this.handleAddArticle}
+            username={username}
+          />
+        )}
         <PaginationBar
           changePage={this.changePage}
           page={page}

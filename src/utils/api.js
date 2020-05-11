@@ -61,3 +61,13 @@ export const updateVotes = (section, id, voteChange) => {
     { inc_votes: voteChange }
   );
 };
+
+export const postArticle = (requestBody) => {
+  console.log(requestBody);
+  return axios
+    .post("https://j-dublon-nc-news.herokuapp.com/api/articles", requestBody)
+    .then(({ data: { article } }) => {
+      console.log(article);
+      return article;
+    });
+};

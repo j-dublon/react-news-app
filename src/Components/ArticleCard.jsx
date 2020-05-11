@@ -9,8 +9,18 @@ const ArticleCard = ({
   comment_count,
   votes,
   article_id,
+  topic,
+  username,
 }) => {
   const date = modifyDate(created_at);
+
+  let ImagePath = "";
+
+  try {
+    ImagePath = require(`../Images/${article_id}.jpg`);
+  } catch (err) {
+    ImagePath = require(`../Images/${topic}.jpg`);
+  }
 
   return (
     <section className="articleCard">
@@ -26,11 +36,7 @@ const ArticleCard = ({
       <h5 className="articleScore">
         comments: {comment_count}, votes: {votes}
       </h5>
-      <img
-        src={require(`../Images/${article_id}.jpg`)}
-        alt="angularjs"
-        className="cardPic"
-      />
+      <img src={ImagePath} alt="thumbnailPic" className="cardPic" />
     </section>
   );
 };

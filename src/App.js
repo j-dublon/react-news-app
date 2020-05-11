@@ -22,7 +22,10 @@ class App extends Component {
         <Title username={this.state.username} />
         <Router>
           <ArticleList path="/" />
-          <ArticleList path="/topic/:topic_slug" />
+          <ArticleList
+            username={this.state.username}
+            path="/topic/:topic_slug"
+          />
           <ArticleList path="/:author" />
           <SingleArticle
             path="/articles/:article_id"
