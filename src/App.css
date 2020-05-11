@@ -117,6 +117,32 @@ h1 {
   margin-bottom: 3px;
 }
 
+.articleForm {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px 20px 5px 20px;
+  background-color: #eaeded;
+  display: flex;
+  flex-direction: column;
+}
+
+.articleFormTitle {
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  font-style: italic;
+}
+
+.articleLabel {
+  text-align: start;
+}
+
+#addArticleTitle,
+#addArticleBody {
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: "Oswald", sans-serif;
+}
+
 .singleArticle {
   border: 1px solid black;
   border-radius: 5px;
@@ -213,7 +239,15 @@ h1 {
 .submitButton.article {
   width: 60%;
   align-self: center;
-  margin-bottom: 2px;
+  margin-bottom: 0.4em;
+  margin-top: 0.4em;
+}
+
+.submitButton.addArticle {
+  width: 30%;
+  align-self: center;
+  margin-bottom: 0.4em;
+  margin-top: 0.4em;
 }
 
 .pageButton {
@@ -239,6 +273,10 @@ h1 {
 
 @media only screen and (max-width: 600px) {
   .articleCard {
+    width: 80%;
+  }
+
+  .articleForm {
     width: 80%;
   }
 

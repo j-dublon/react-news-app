@@ -24,28 +24,28 @@ class AddArticle extends Component {
   render() {
     const { topic } = this.props;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h3>Add an article about {topic}:</h3>
-        <label>
+      <form onSubmit={this.handleSubmit} className="articleForm">
+        <h3 className="articleFormTitle">Add your {topic} article:</h3>
+        <label className="addArticleLabel" htmlFor="addArticleTitle">
           Title:{" "}
-          <input
-            type="text"
-            name="title"
-            onChange={this.handleInput}
-            className="articleTitle"
-            required
-          ></input>
         </label>
-        <label>
-          Article:
-          <textarea
-            name="body"
-            onChange={this.handleInput}
-            className="articleBody"
-            required
-          />
+        <input
+          type="text"
+          name="title"
+          onChange={this.handleInput}
+          id="addArticleTitle"
+          required
+        ></input>
+        <label className="addArticleLabel" htmlFor="addArticleBody">
+          Article:{" "}
         </label>
-        <button className="submitButton">Submit</button>
+        <textarea
+          name="body"
+          onChange={this.handleInput}
+          id="addArticleBody"
+          required
+        />
+        <button className="submitButton addArticle">Submit</button>
       </form>
     );
   }
