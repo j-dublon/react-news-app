@@ -63,6 +63,28 @@ class ArticleList extends Component {
     });
   };
 
+  handleDeleteArticle = (article_id) => {
+    api
+      .removeArticle(article_id)
+      .then(() => {
+        this.setState((currentState) => {
+          return {
+            articles: currentState.articles.filter((article) => {
+              return article.article_id !== article_id;
+            }),
+          };
+        });
+      })
+      .catch((err) => {
+        this.setState((currentState) => {
+          return {
+            articles: currentState.articles,
+            err: err.response.data.msg,
+          };
+        });
+      });
+  };
+
   componentDidMount = () => {
     this.getArticles();
   };
@@ -102,8 +124,9 @@ class ArticleList extends Component {
               <ArticleCard
                 {...article}
                 key={article_id}
-                username={username}
                 topic={topic_slug}
+                currentUser={username}
+                handleDeleteArticle={this.handleDeleteArticle}
               />
             );
           })}

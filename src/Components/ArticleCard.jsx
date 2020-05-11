@@ -10,10 +10,10 @@ const ArticleCard = ({
   votes,
   article_id,
   topic,
-  username,
+  currentUser,
+  handleDeleteArticle,
 }) => {
   const date = modifyDate(created_at);
-
   let ImagePath = "";
 
   try {
@@ -36,6 +36,14 @@ const ArticleCard = ({
       <h5 className="articleScore">
         comments: {comment_count}, votes: {votes}
       </h5>
+      {author === currentUser && (
+        <button
+          onClick={() => handleDeleteArticle(article_id)}
+          className="submitButton"
+        >
+          Delete your article
+        </button>
+      )}
       <img src={ImagePath} alt="thumbnailPic" className="cardPic" />
     </section>
   );

@@ -71,3 +71,9 @@ export const postArticle = (requestBody) => {
       return article;
     });
 };
+
+export const removeArticle = (id) => {
+  return axios.delete(
+    `https://j-dublon-nc-news.herokuapp.com/api/articles/${id}`
+  );
+};
