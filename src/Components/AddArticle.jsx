@@ -24,8 +24,8 @@ class AddArticle extends Component {
   render() {
     const { topic } = this.props;
     return (
-      <form onSubmit={this.handleSubmit} className="articleForm">
-        <h3 className="articleFormTitle">Add your {topic} article:</h3>
+      <form onSubmit={this.handleSubmit} className="addArticleForm">
+        <h3 className="addArticleFormTitle">Add your {topic} article:</h3>
         <label className="addArticleLabel" htmlFor="addArticleTitle">
           Title:{" "}
         </label>

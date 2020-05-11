@@ -107,17 +107,17 @@ class ArticleList extends Component {
     return (
       <main>
         <form className="sortByForm">
-          <label htmlFor="sortBy" className="sortBy">
+          <label htmlFor="sortBy" className="sortByLabel">
             Sort articles by:
           </label>
-          <select onChange={this.selectSortBy} className="dropDown">
+          <select onChange={this.selectSortBy} className="sortBySelect">
             <option value="created_at">Date</option>
             <option value="votes">Most voted</option>
             <option value="comment_count">Most commented</option>
           </select>
         </form>
-        <h4 className="totalCount">{total_count} articles found</h4>
-        <section className="articleSection">
+        <h4 className="articleCount">{total_count} articles found</h4>
+        <section className="articleContainer">
           {articles.map((article) => {
             const { article_id } = article;
             return (

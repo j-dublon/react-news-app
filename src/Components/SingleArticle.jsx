@@ -49,10 +49,10 @@ class SingleArticle extends Component {
     if (err) return <ErrorDisplayer err={err} />;
     return (
       <section>
-        <main className="singleArticle">
-          <h3 className="articleTitle">{title}</h3>
-          <h4 className="singleArticleAuthor">
-            <Link to={`/${author}`} className="authorLink">
+        <main className="singleArticleContainer">
+          <h3 className="singleArticleTitle">{title}</h3>
+          <h4 className="singleArticleAuthorDate">
+            <Link to={`/${author}`} className="singleArticleAuthorLink">
               {author}
             </Link>
             , {date}

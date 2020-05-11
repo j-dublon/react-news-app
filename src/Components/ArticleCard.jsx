@@ -24,27 +24,27 @@ const ArticleCard = ({
 
   return (
     <section className="articleCard">
-      <h3 className="articleLink">
+      <h3 className="articleCardTitle">
         <Link to={`/articles/${article_id}`}>{title}</Link>
       </h3>
-      <h4 className="author">
-        <Link to={`/${author}`} className="authorLink">
+      <h4 className="articleCardAuthorDate">
+        <Link to={`/${author}`} className="articleCardAuthor">
           {author}
         </Link>
         , {date}
       </h4>
-      <h5 className="articleScore">
+      <h5 className="articleCardScore">
         comments: {comment_count}, votes: {votes}
       </h5>
       {author === currentUser && (
         <button
           onClick={() => handleDeleteArticle(article_id)}
-          className="submitButton article"
+          className="submitButton articleCardDelete"
         >
           Delete your article
         </button>
       )}
-      <img src={ImagePath} alt="thumbnailPic" className="cardPic" />
+      <img src={ImagePath} alt="thumbnailPic" className="articleCardPic" />
     </section>
   );
 };

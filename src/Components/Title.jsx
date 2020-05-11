@@ -5,18 +5,18 @@ function Title({ username }) {
   return (
     <header>
       <h1>
-        <span className="highlight" aria-label="highlighted first letter">
+        <span className="titleHighlight" aria-label="highlighted first letter">
           N
         </span>
         ORTHCODERS{" "}
-        <span className="highlight" aria-label="highlighted first letter">
+        <span className="titleHighlight" aria-label="highlighted first letter">
           N
         </span>
         EWS
       </h1>
-      <h2 className="welcome">
+      <h2 className="titleWelcome">
         Welcome! You are currently logged in as{" "}
-        <span className="highlight">{username}</span>
+        <span className="titleHighlight">{username}</span>
       </h2>
     </header>
   );

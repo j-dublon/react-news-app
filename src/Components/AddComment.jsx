@@ -30,7 +30,7 @@ class AddComment extends Component {
           <textarea
             name="body"
             onChange={this.handleInput}
-            className="textArea"
+            className="commentTextArea"
             required
           />
         </label>
